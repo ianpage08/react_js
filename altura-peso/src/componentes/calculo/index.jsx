@@ -9,7 +9,7 @@ const Calculo = () => {
     const calcularIMC = () =>{
         
         const imc = peso / (altura * altura)
-        console.log(imc)
+        
         if(altura === 0 || peso === 0){
             setResultado(
             <div>
