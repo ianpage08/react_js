@@ -5,14 +5,18 @@ import ResposList from './componets/REposList'
 
 function App() {
   const [fomularioEstaVisivel, setFomularioestavisivel] =  useState(true) 
+  const [nameUsuario, setNome] = useState('')
   
 
   return (
-    <>
-      <Perfil name ='Ian Page' img = 'https://avatars.githubusercontent.com/u/179640858?v=4&size=64'/>
-
-      <ResposList/>
+    <><input type="text" name="" id="" placeholder='Seu Nome de usuario' onBlur={(evento) => setNome(evento.target.value)}/>
       
+      {nameUsuario.length > 4 && (
+        <>
+        <Perfil nameUsuario={nameUsuario}/>
+        <ResposList nameUsuario={nameUsuario}/>
+        </>
+      )}
         {/* {fomularioEstaVisivel && (<Formulario/>)}
         <button type='button' onClick={() => setFomularioestavisivel(!fomularioEstaVisivel)}>toggle</button> */}
       

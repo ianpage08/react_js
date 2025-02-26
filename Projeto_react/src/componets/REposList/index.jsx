@@ -1,32 +1,38 @@
 import { useEffect, useState } from "react"
+import styles from './ReposList.module.css'
 
 
 
-const ResposList =() =>{
+
+const ResposList =({nameUsuario}) =>{
     const [repos, setRepos] = useState([])
 
     useEffect(() => {
-        fetch('https://api.github.com/users/ianpage08/repos')
-        .then(res => res.jeson())
+        fetch(`https://api.github.com/users/${nameUsuario}/repos`)
+        .then(res => res.json())
         .then(resJson =>{
-            setRepos(resJson)
             console.log(resJson)
+            setRepos(resJson)
+            
         })
-    }, [])
+    }, [nameUsuario])
     return(
-        <>
-        <ul>
+        <div className='container'>
+        <ul className={styles.list}>
             {repos.map(repositorio => (
-                <li>
-                    <b>Nome:</b> {repositorio.name}
-                    <b>Liguagem:</b> {repositorio.language}
-                    <a target="_blank" key={repositorio.id} href={repositorio.html_url}>Visitar site</a>
+                <li key={repositorio.id} className={styles.listItem}> 
+                    <div className={styles.itemName}>
+                        <b>Nome:</b> {repositorio.name}
+                    </div>
+                    <div className={styles.itemLanguage}><b >Liguagem:</b> {repositorio.language}
+                    </div>
+                    <a target="_blank" className={styles.itemLink} href={repositorio.html_url}>Visitar site</a>
                 </li>
             ))}
-            <li>Repositorio</li>
+            
         </ul>
-        </>
+        </div>
     )
 }
 
-export default ResposList
+export default ResposList 
