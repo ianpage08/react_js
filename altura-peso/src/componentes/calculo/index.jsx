@@ -27,6 +27,7 @@ const Calculo = () => {
                 
                 <div>
                 <p>seu IMC é de {imc.toFixed(2)}</p>
+                <img src="" alt="IMC" />
                 </div>
             )
         }
