@@ -17,8 +17,8 @@ function App() {
         <ResposList nameUsuario={nameUsuario}/>
         </>
       )}
-        {/* {fomularioEstaVisivel && (<Formulario/>)}
-        <button type='button' onClick={() => setFomularioestavisivel(!fomularioEstaVisivel)}>toggle</button> */}
+        {fomularioEstaVisivel && (<Formulario/>)}
+        <button type='button' onClick={() => setFomularioestavisivel(!fomularioEstaVisivel)}>toggle</button> 
       
       
     </>
